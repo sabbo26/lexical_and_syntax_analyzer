@@ -1,0 +1,90 @@
+METHOD_BODY -> STATEMENT_LIST 
+
+STATEMENT_LIST -> PRIMITIVE_TYPE STATEMENT_LIST'_2 
+
+PRIMITIVE_TYPE -> int 
+
+MATCHING ' int ' ...
+
+STATEMENT_LIST'_2 -> id STATEMENT_LIST'_2'_1 
+
+MATCHING ' id ' ...
+
+STATEMENT_LIST'_2'_1 -> ; STATEMENT_LIST'_2'_1'_1 
+
+MATCHING ' ; ' ...
+
+STATEMENT_LIST'_2'_1'_1 -> STATEMENT_LIST$ 
+
+STATEMENT_LIST$ -> ASSIGNMENT STATEMENT_LIST$ 
+
+ASSIGNMENT -> id assign EXPRESSION ; 
+
+MATCHING ' id ' ...
+
+MATCHING ' assign ' ...
+
+EXPRESSION -> num EXPRESSION'_2 
+
+MATCHING ' num ' ...
+
+EXPRESSION'_2 -> epsilon
+
+MATCHING ' ; ' ...
+
+STATEMENT_LIST$ -> IF STATEMENT_LIST$ 
+
+IF -> if IF'_1 
+
+MATCHING ' if ' ...
+
+IF'_1 -> ( IF'_1'_1 
+
+MATCHING ' ( ' ...
+
+IF'_1'_1 -> EXPRESSION IF'_1'_1'_1 
+
+EXPRESSION -> id EXPRESSION'_6 
+
+MATCHING ' id ' ...
+
+EXPRESSION'_6 -> relop EXPRESSION'_6'_1 
+
+MATCHING ' relop ' ...
+
+EXPRESSION'_6'_1 -> num 
+
+MATCHING ' num ' ...
+
+IF'_1'_1'_1 -> ) IF'_1'_1'_1'_1 
+
+MATCHING ' ) ' ...
+
+IF'_1'_1'_1'_1 -> { IF'_1'_1'_1'_1'_1 
+
+MATCHING ' { ' ...
+
+IF'_1'_1'_1'_1'_1 -> id IF'_1'_1'_1'_1'_1'_4 
+
+MATCHING ' id ' ...
+
+IF'_1'_1'_1'_1'_1'_4 -> assign IF'_1'_1'_1'_1'_1'_4'_1 
+
+MATCHING ' assign ' ...
+
+IF'_1'_1'_1'_1'_1'_4'_1 -> EXPRESSION IF'_1'_1'_1'_1'_1'_4'_1'_1 
+
+EXPRESSION -> num EXPRESSION'_2 
+
+MATCHING ' num ' ...
+
+EXPRESSION'_2 -> epsilon
+
+IF'_1'_1'_1'_1'_1'_4'_1'_1 -> ; IF'_1'_1'_1'_1'_1'_4'_1'_1'_1 
+
+MATCHING ' ; ' ...
+
+IF'_1'_1'_1'_1'_1'_4'_1'_1'_1 -> } IF'_1'_1'_1'_1'_1'_4'_1'_1'_1'_1 
+
+MATCHING ' } ' ...
+
